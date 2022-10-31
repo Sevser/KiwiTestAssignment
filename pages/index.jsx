@@ -3,8 +3,12 @@ import Layout from '../components/layout/default'
 import styles from '../styles/Home.module.css'
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
+import KeyboardInput from '../components/common/keyboardInput';
+import { useState } from 'react';
 
 export default function Home() {
+  const [telNumber, updateNumber] = useState('');
+
   return (
     <div className={styles.container}>
       <Head>
@@ -12,9 +16,10 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Layout>
+        <KeyboardInput value={telNumber} onChange={(e) => updateNumber(() => e)} />
         <Button
           onClick={() => axios.get('/api/letterCombination/65344')}
-          variant="primary">call axios</Button>
+          variant="outline-primary">call axios</Button>
       </Layout>
     </div>
   )
