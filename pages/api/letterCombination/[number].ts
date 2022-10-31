@@ -8,11 +8,14 @@ const dict = {
     8: ['t', 'u', 'v'],
     9: ['w', 'x', 'y', 'z'],
 }
-var letterCombinations = function (digits: string) {
-    let digitArray = digits.split('');
+function letterCombinations(digits: string) {
+    const digitArray = digits.split('');
     let ret = new Array<string>();
     while (digitArray.length) {
         const number: string = digitArray.shift() as string;
+        if (dict[number] === undefined) {
+            throw `Symbol '${number}' are not valid`;
+        }
         const current = dict[number].slice();
         if (ret.length) {
             ret = ret.reduce((acc, item) => {
@@ -25,7 +28,14 @@ var letterCombinations = function (digits: string) {
     return ret;
 };
 
-export default function hello(req, res) {
-    const { slug } = req.query
-    res.status(200).json({ number: `Post: ${slug.join(', ')}` })
+export default async function hello(req, res) {
+    try {
+        if (req.query.number) {
+            res.status(200).json({ data: letterCombinations(req.query.number) })
+        } else {
+            throw ('number was not provided');
+        }
+    } catch (e) {
+        res.status(400).json({ error: e.toString() })
+    }
 }
