@@ -42,7 +42,7 @@ export default function Home() {
             <Button
               disabled={!telNumber}
               onClick={getListCombination}
-              variant="outline-primary">call axios</Button>
+              variant="outline-primary">get All combinations</Button>
           </div>
           <CombinationViewer
             pending={request !== null}
