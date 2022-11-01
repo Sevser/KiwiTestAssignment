@@ -4,7 +4,11 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 
-const Keyboard = ({ onInput }) => {
+type Props = {
+    onInput?: ((a: string | number) => void) | undefined;
+};
+
+const Keyboard = ({ onInput }: Props) => {
     const onInputHandler = (value: number) => {
         if (onInput) {
             onInput(value);

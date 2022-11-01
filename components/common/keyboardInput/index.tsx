@@ -4,7 +4,11 @@ import Keyboard from '../keyboard';
 
 import styles from './KeyboardInput.module.css';
 
-declare type FormControlElement = HTMLInputElement | HTMLTextAreaElement;
+type FormControlElement = {
+    target: {
+        value: string,
+    }
+};
 
 const KeyboardInput = ({ value = '', onChange }: { value: string, onChange?: (a: string) => void }) => {
     const [_value, setValue] = useState(value);
@@ -22,8 +26,8 @@ const KeyboardInput = ({ value = '', onChange }: { value: string, onChange?: (a:
         }
     };
 
-    const handleClick = (event: number) => {
-        updateValue(value.concat(event));
+    const handleClick = (event: number | string) => {
+        updateValue(value.concat(event.toString()));
     };
 
     return (

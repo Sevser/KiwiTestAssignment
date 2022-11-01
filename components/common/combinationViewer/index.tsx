@@ -4,14 +4,19 @@ import Spinner from 'react-bootstrap/Spinner';
 
 import styles from './CombinationViewer.module.css';
 
-const CombinationViewer = ({ list, pending }: { list: string[], pending: false }) => {
+type Props = {
+    list: string[],
+    pending: boolean
+};
+
+const CombinationViewer = ({ list, pending }: Props) => {
     if (pending) {
         return (<Spinner animation="border" role="status" >
             <span className="visually-hidden" > Loading...</span>
         </Spinner>);
     }
     return (<div className={`container ${styles.badgeList}`}>
-        {list && list.map((name) => (<Badge style={{ marginRight: '1rem' }}>{name}</Badge>))}
+        {list && list.map((name) => (<Badge key={name} style={{ marginRight: '1rem' }}>{name}</Badge>))}
     </div>);
 };
 
