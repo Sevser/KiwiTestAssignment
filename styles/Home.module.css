@@ -1,6 +1,9 @@
 .container {
   height: 100%;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }
 
 .main {
@@ -29,4 +32,18 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.buttonContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.resultContainer {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }

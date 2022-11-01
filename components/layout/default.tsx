@@ -1,6 +1,7 @@
+import React from 'react';
 import { Navbar, Container } from 'react-bootstrap';
 
-export default function Layout({ children }) {
+export default function Layout({ children }: { children: any[] }) {
     return ([
         <Navbar bg="light" expand="lg">
             <Container>
