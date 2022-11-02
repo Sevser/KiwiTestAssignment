@@ -17,6 +17,12 @@
     "jsx": "preserve",
     "incremental": true
   },
-  "include": ["src", "components/**/*", "pages/**/*", "src/react-app-env.d.ts"],
+  "include": [
+    "src",
+    "components/**/*",
+    "pages/**/*",
+    "utills/**/*",
+    "src/react-app-env.d.ts"
+  ],
   "exclude": ["node_modules"]
 }

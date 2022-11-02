@@ -6,6 +6,7 @@ import axios from 'axios';
 import { CombinationViewer, KeyboardInput } from '../components/common/index';
 
 import styles from '../styles/Home.module.css';
+import letterCombinations from '../utills/letterCombinations';
 
 export default function Home() {
   const [telNumber, updateNumber] = useState('');
@@ -21,7 +22,9 @@ export default function Home() {
           .then(res => {
             setListCombination(() => res.data.data);
           })
-          .catch(console.error)
+          .catch(() => {
+            setListCombination(() => letterCombinations(telNumber) as never[]);
+          })
           .finally(() => {
             setRequest(() => null);
           });
