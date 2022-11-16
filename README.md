@@ -1,5 +1,6 @@
 # Test assignment 
-[Preveiw](https://sevser.github.io/KiwiTestAssignment/)
+[Preveiw One](https://sevser.github.io/KiwiTestAssignment/)
+[Preveiw Two](https://www.sevser.live/apps/kiwi)
 
 # Description
 Fullstack JS assignment for Kiwi Account tribe
